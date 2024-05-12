@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+  <style type="text/css">
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #e9ecef;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #8EC5FC;
+background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+
+}
+
+.card-container {
+  perspective: 1000px; /* For a subtle 3D effect on hover */
+}
+
+.card {
+  width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s;
+
+background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+
+}
+
+.card:hover {
+  transform: rotateY(10deg);
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-top: -50px; /* Half outside the card */
+  border: 5px solid white; /* Creates a nice border effect */
+}
+
+.info {
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  margin: 10px 0;
+}
+
+p {
+  color: #666;
+  font-size: 0.9em;
+}
+
+.social-icons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  margin: 0 10px;
+}
+
+.social-icons a {
+  transition: transform 0.3s;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+  </style>
+
+
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Card</title>
+  <link rel="stylesheet" href="business-card-styles.css">
+</head>
+<body>
+  <div class="card-container">
+      <div class="card">
+          <img src="C:\Users\win10\Desktop\fee\profilepic.jpg" alt="Your Name" class="avatar">
+          <div class="info">
+              <h1>PANKAJ KUMAR</h1>
+              <p>Web Developer</p>
+              <p>pankajkumargmail.com</p>
+              <p>+91 8970678957</p>
+              <div class="social-icons">
+                  
+                  <a href="https://twitter.com/?lang=en">
+                      <img src="C:\Users\parjo\Desktop\FEE\FEE PROJECT\ABOUT PAGE\twitter.jpg" alt="Twitter"></a>
+                  
+                  <a href="https://instagram.com/j.a.s.h.a.n_k.a.m.b.o.j?igshid=MzMyNGUyNmU2YQ==">
+                      <img src="C:\Users\parjo\Desktop\FEE\FEE PROJECT\ABOUT PAGE\INSTAGRAM.jpg" alt="instagram"></a>
+                  
+                  <a href="https://web.telegram.org/a/">
+                      <img src="C:\Users\parjo\Desktop\FEE\FEE PROJECT\ABOUT PAGE\telegram(2).jpg" alt="telegram"></a>
+              </div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>
