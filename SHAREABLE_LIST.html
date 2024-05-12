@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!-- saved from url=(0089)file:///C:/Users/win10/AppData/Local/Temp/Rar$EX31.454/SHAREABLE_LIST/SHAREABLE_LIST.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <script src="./SHAREABLE_LIST_files/angular.min.js.download"></script>
+    <link rel="stylesheet" href="./SHAREABLE_LIST_files/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <style>
+      .app-container {
+        height: 100vh;
+        width: 100%;
+      }
+      .complete {
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-container d-flex align-items-center justify-content-center flex-column ng-scope ng-binding" ng-app="myApp" ng-controller="myController">
+      
+      <h3>Todo App</h3>
+      <div class="d-flex align-items-center mb-3">
+        <div class="form-group mr-3 mb-0">
+          <input ng-model="yourTask" type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty" id="formGroupExampleInput" placeholder="Enter a task here">
+        </div>
+        <button type="button" class="btn btn-primary mr-3" ng-click="saveTask()">
+          Save
+        </button>
+        <button type="button" class="btn btn-warning" ng-click="getTask()">
+          Get Tasks
+        </button>
+      </div>
+      
+      <div class="table-wrapper">
+        <table class="table table-hover table-bordered">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Todo item</th>
+              <th>status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- ngRepeat: task in tasks -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script>
+      var app = angular.module("myApp", []);
+      app.controller("myController", function($scope) {
+        $scope.tasks = [];
+        // $scope.saved = localStorage.getItem("tasks");
+        // $scope.tasks =
+        //   localStorage.getItem("tasks") !== null
+        //     ? JSON.parse($scope.saved)
+        //     : [
+        //         { task_name: "Learn AngularJS", status: false },
+        //         { task_name: "Build an Angular app", status: false }
+        //       ];
+        // localStorage.setItem("tasks", JSON.stringify($scope.tasks));
+        $scope.saveTask = function() {
+          $scope.tasks.push({ task_name: $scope.yourTask, status: false });
+          //   localStorage.setItem("tasks", JSON.stringify($scope.tasks));
+        };
+        $scope.getTask = function() {
+          var oldTasks = $scope.tasks;
+          $scope.tasks = [];
+          angular.forEach(oldTasks, function(task) {
+            if (!task.done) $scope.tasks.push(task);
+          });
+          localStorage.setItem("tasks", JSON.stringify($scope.tasks));
+        };
+        $scope.delete = function(i) {
+          $scope.tasks.splice(i, 1);
+        };
+        $scope.finished = function(i) {
+          $scope.tasks[i].status = true;
+        };
+      });
+    </script>
+
+
+
+
+
+    <script type="text/javascript">
+        var app = angular.module("myApp", []);
+      app.controller("myController", function($scope) {
+        $scope.tasks = [];
+        // $scope.saved = localStorage.getItem("tasks");
+        // $scope.tasks =
+        //   localStorage.getItem("tasks") !== null
+        //     ? JSON.parse($scope.saved)
+        //     : [
+        //         { task_name: "Learn AngularJS", status: false },
+        //         { task_name: "Build an Angular app", status: false }
+        //       ];
+        // localStorage.setItem("tasks", JSON.stringify($scope.tasks));
+        $scope.saveTask = function() {
+          $scope.tasks.push({ task_name: $scope.yourTask, status: false });
+          //   localStorage.setItem("tasks", JSON.stringify($scope.tasks));
+        };
+        $scope.getTask = function() {
+          var oldTasks = $scope.tasks;
+          $scope.tasks = [];
+          angular.forEach(oldTasks, function(task) {
+            if (!task.done) $scope.tasks.push(task);
+          });
+          localStorage.setItem("tasks", JSON.stringify($scope.tasks));
+        };
+        $scope.delete = function(i) {
+          $scope.tasks.splice(i, 1);
+        };
+        $scope.finished = function(i) {
+          $scope.tasks[i].status = true;
+        };
+      });
+    </script>
+  
+</body></html>
