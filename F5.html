@@ -1,0 +1,162 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+<body>
+
+
+
+<h3>Todo</h3>
+    <input id="newitem" />
+    <div id="list"></div>
+    
+    <script>
+    // Names HTML elements, calls `makeAndAddNewItem` when input changes
+    const
+      newItemInput = document.getElementById("newitem"),
+      listDiv = document.getElementById("list");
+    newItemInput.addEventListener("change", makeAndAddNewItem);
+    
+    // `tempList` is an array containing all our list items, 
+    // serving as the Source of Truth for the state of our data.
+    // When it changes, we should update the page and the stored list
+    //
+    // On page load, we retrieve data from storage and update the page
+    const tempList = getListFromStorage();
+    showListOnPage(tempList);
+    
+    function getListFromStorage(){ // Called on page load
+      // Gets the storedList (if any), converts it to an array
+      //   and returns the array (or returns an empty array)
+      const storedList = localStorage.getItem("list");
+      const list = storedList ? JSON.parse(storedList) : [];
+      return list;
+    }
+    
+    function showListOnPage(tempList){ // Called on page load
+      // Loops through the tempList array and adds each item to the page
+      for(let currentItem of tempList){
+        showItemOnPage(currentItem);
+      }  
+    }
+    
+    function showItemOnPage(item){ // Used on load and for new items
+      // Appends to the listDiv a new `p` element, whose content
+      // is the value of the `description` property of the item
+      let
+        descriptionNode = document.createTextNode(item.description),
+        newParagraph = document.createElement("p");
+      newParagraph.appendChild(descriptionNode);
+      listDiv.appendChild(newParagraph);
+    }
+    
+    function makeAndAddNewItem(event){ // eventListener for new items
+      // Makes a `newItem` object whose `description` property
+      //   comes from the value of the `newItemInput` element
+      // Adds the new item to the page and to the tempList
+      // Replaces the stored list, using the newly changed tempList
+      const newItem = {};
+      newItem.description = newItemInput.value;
+      newItemInput.value = ""; // Clears input
+    
+      tempList.push(newItem);  // Updates list
+      showItemOnPage(newItem); // Updates page
+      updateLocalStorage(tempList); // Updates storage
+    }
+    
+    function updateLocalStorage(){ // Called when tempList changes
+      // Converts tempList (array) to a string to update localStorage.list
+      const listToStore = JSON.stringify(tempList);
+      localStorage.setItem("list", listToStore);
+    }
+    </script>
+</body>
+</html> -->
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+<body>
+
+<h3>Todo</h3>
+<input id="newitem" />
+<div id="list"></div>
+
+<script>
+  const newItemInput = document.getElementById("newitem");
+  const listDiv = document.getElementById("list");
+  newItemInput.addEventListener("change", makeAndAddNewItem);
+
+  const tempList = getListFromStorage();
+  showListOnPage(tempList);
+
+  function getListFromStorage() {
+    const storedList = localStorage.getItem("list");
+    const list = storedList ? JSON.parse(storedList) : [];
+    return list;
+  }
+
+  function showListOnPage(tempList) {
+    for (let currentItem of tempList) {
+      showItemOnPage(currentItem);
+    }
+  }
+
+  function showItemOnPage(item) {
+    let descriptionNode = document.createTextNode(item.description);
+    let newParagraph = document.createElement("p");
+
+    // Create a delete button for each item
+    let deleteButton = document.createElement("button");
+    deleteButton.innerHTML = "Delete";
+    deleteButton.addEventListener("click", function () {
+      deleteItem(item);
+    });
+
+    newParagraph.appendChild(descriptionNode);
+    newParagraph.appendChild(deleteButton);
+    listDiv.appendChild(newParagraph);
+  }
+
+  function makeAndAddNewItem(event) {
+    const newItem = {};
+    newItem.description = newItemInput.value;
+    newItemInput.value = "";
+
+    tempList.push(newItem);
+    showItemOnPage(newItem);
+    updateLocalStorage(tempList);
+  }
+
+  function deleteItem(item) {
+    // Remove the item from the tempList
+    const index = tempList.indexOf(item);
+    if (index > -1) {
+      tempList.splice(index, 1);
+    }
+
+    // Update the page and storage
+    listDiv.innerHTML = ""; // Clear the listDiv
+    showListOnPage(tempList);
+    updateLocalStorage(tempList);
+  }
+
+  function updateLocalStorage() {
+    const listToStore = JSON.stringify(tempList);
+    localStorage.setItem("list", listToStore);
+  }
+</script>
+
+</body>
+</html>
