@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+    :root {
+      --bg: #282c34;
+      --header: #212529;
+      --text: #ffffff;
+      --white: #ffffff;
+      --light-grey: #adb5bd;
+      --tag-1: #fc8181;
+      --tag-1-text: #ffffff;
+      --tag-2: #90cdf4;
+      --tag-2-text: #1a202c;
+      --tag-3: #f6e05e;
+      --tag-3-text: #1a202c;
+      --tag-4: #68d391;
+      --tag-4-text: #1a202c;
+      --purple: #805ad5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      color: var(--text);
+    }
+
+    .app {
+      background-color: var(--bg);
+      width: 100%;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: bold;
+      color: var(--purple);
+    }
+
+    .project {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .project-info {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .project-tasks {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 20px;
+    }
+
+    .project-column-heading__title {
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--purple);
+    }
+
+    .task {
+      cursor: move;
+      background-color: var(--header);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .task:hover {
+      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .task p {
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+
+    .task__tag {
+      border-radius: 20px;
+      padding: 6px 20px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .task__tags {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .task__options {
+      font-size: 20px;
+      color: var(--light-grey);
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .task__options:hover {
+      color: var(--text);
+    }
+
+    .task__stats {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+    }
+
+    .task__owner {
+      width: 25px;
+      height: 25px;
+      border-radius: 100%;
+      background: var(--purple);
+      margin-left: auto;
+    }
+
+    .tag-progress h2 {
+      font-size: 20px;
+      font-weight: bold;
+      color: var(--purple);
+      margin-bottom: 20px;
+    }
+
+    .tag-progress p {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .tag-progress span {
+      color: var(--light-grey);
+    }
+
+    .progress {
+      width: 100%;
+      height: 20px;
+      border-radius: 10px;
+    }
+
+    .task-activity h2 {
+      font-size: 20px;
+      font-weight: bold;
+      color: var(--purple);
+      margin-bottom: 20px;
+    }
+
+    .task-activity li {
+      margin-bottom: 20px;
+    }
+
+    .task-activity time {
+      color: var(--light-grey);
+      font-size: 16px;
+    }
+
+    .task-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+    }
+
+    .task-icon svg {
+      font-size: 16px;
+      color: var(--text);
+    }
+
+    @media only screen and (max-width: 1000px) {
+      .project-tasks {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+      .project-tasks {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class='app'>
+    <main class='project'>
+      <div class='project-info'>
+        <h1>ERROR</h1>
+      </div>
+      <div class='project-tasks'>
+        <div class='project-column'>
+          <div class='project-column-heading'>
+            <h2 class='project-column-heading__title'>Task Ready</h2>
+            <button class='project-column-heading__options'>
+              <i class="fas fa-ellipsis-h"></i>
+            </button>
+          </div>
+          <div class='task' draggable='true'>
+            <div class='task__tags'>
+              <span class='task__tag task__tag--copyright'>404</span>
+              <button class='task__options'>
+                <i class="fas fa-ellipsis-h"></i>
+              </button>
+            </div>
+            <p>Konsep hero title yang menarik</p>
+            <div class='task__stats'>
+              <span><time datetime="2021-11-24T20:00:00"><i class="fas fa-flag"></i>Nov 24</time></span>
+              <span><i class="fas fa-comment"></i>3</span>
+              <span><i class="fas fa-paperclip"></i>7</span>
+              <span class='task__owner'></span>
+            </div>
+          </div>
+          <!-- Other tasks -->
+        </div>
+        <!-- Other columns -->
+      </div>
+    </main>
+  </div>
+</body>
+</html>
