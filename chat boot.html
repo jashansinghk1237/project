@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)file:///C:/Users/win10/AppData/Local/Temp/Rar$EX26.375/chat/CHAT_BOT.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <script type="text/javascript">
+    var firebaseApp = firebase.initializeApp({ 
+  apiKey: "AIzaSyC4cGXqwHlZC1iv9ZjeXaNqyzI-kMh7y6Y",
+    authDomain: "kupidochat-bd3c5.firebaseapp.com",
+    databaseURL: "https://kupidochat-bd3c5.firebaseio.com",
+    storageBucket: "kupidochat-bd3c5.appspot.com",
+    messagingSenderId: "972492700679"
+});
+
+var db = firebaseApp.database();
+
+var chatApp = db.ref('chatApp'); //chatApp
+
+var dirRef = chatApp.child('directory');
+var chatRef = chatApp.child('chats');
+var userRef = chatApp.child('users');
+
+
+var app = new Vue({
+  el: '#chatApp',
+  firebase: {
+    directory: dirRef
+  },
+  data: {
+    headUser: 'Marinho Gomes',
+    showChatList: false,
+    chatBoxArea: true,
+    currentChats: []
+  },
+  methods: {
+    showUsuario: function(id){
+      console.log(id);
+    },
+    expandTextArea: function(){
+      $('#chatBox-textbox').height(80);
+      $('#chatTextarea').height(60);
+    },
+    dexpandTetArea: function(){
+      $('#chatBox-textbox').height(60);
+      $('#chatTextarea').height(40);
+    },
+    toggleChat: function(){
+      if(this.chatBoxArea){
+        $('#chatbox-area').hide();
+      }else{
+        $('#chatbox-area').show();
+      }
+      this.chatBoxArea = !this.chatBoxArea;
+    },
+    openChatBox: function(info){
+      
+    },
+    startChat: function(user){
+      
+    },
+    expandChatList: function(){    $("#userListBox").slideToggle();
+      this.showChatList = !this.showChatList;
+      
+    }
+  }
+})
+  </script>
+
+  <link rel="stylesheet" type="text/css" href="file:///C:/Users/parjo/Desktop/FEE/FEE%20PROJECT/chat/chat.css">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>chat</title>
+</head>
+<body>
+  <div id="chatApp">
+<div class="usersChatList">
+  <div class="card">
+    <a @click="expandChatList()">
+    <div class="card-header">
+      
+    </div>
+    </a>
+    <div id="userListBox" class="card-content thumb-user-list" :class="{show: showChatList}">
+      <article class="media" @click="showUsuario(&#39;123&#39;)">
+        <figure class="media-left">
+          <p class="image is-32x32">
+            <img src="./chat boot_files/32x32.png">
+          </p>
+        </figure>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong>Barbara Middleton</strong>
+              <br>
+            </p>
+          </div>
+        </div>
+      </article>
+      <article class="media">
+        <figure class="media-left">
+          <p class="image is-32x32">
+            <img src="./chat boot_files/32x32.png">
+          </p>
+        </figure>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong>Jonathan Cales</strong>
+              <br>
+            </p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+<div class="chatBox" id="chatBox">
+  <div class="card">
+ 
+ <header class="card-header header-title" @click="toggleChat()">
+    <p class="card-header-title">
+      <i class="fa fa-circle is-online"></i><img src="./chat boot_files/10846088441021659030.webp" style="width: 30px;">&nbsp;{{headUser}}
+    </p>
+    <a class="card-header-icon">
+      <span class="icon">
+        <i class="fa fa-close"></i>
+      </span>
+    </a>
+  </header>
+ 
+ <div id="chatbox-area">
+  <div class="card-content chat-content">
+    <div class="content">
+      <div class="chat-message-group">
+        <div class="chat-thumb">
+          <figure class="image is-32x32">
+            <img src="./chat boot_files/10846088441021659030.webp">
+          </figure>
+        </div>
+        <div class="chat-messages">
+          <div class="message">Olá meu nome é Camila</div>
+          <div class="from">Hoje 04:55</div>
+        </div>
+      </div>
+      <div class="chat-message-group writer-user">
+        <div class="chat-messages">
+          <div class="message">Olá meu nome é Marinho</div>
+          <div class="from">Hoje 04:55</div>
+        </div>
+      </div>
+      <div class="chat-message-group">
+        <div class="chat-thumb">
+          <figure class="image is-32x32">
+            <img src="./chat boot_files/10846088441021659030.webp">
+          </figure>
+        </div>
+        <div class="chat-messages">
+          <div class="message">Olá meu nome é Marinho</div>
+          <div class="message">Caro marinho</div>
+          <div class="from">Hoje 04:55</div>
+        </div>
+      </div>
+      <div class="chat-message-group">
+        <div class="typing">Typing</div>
+        <div class="spinner">
+              <div class="bounce1"></div>
+              <div class="bounce2"></div>
+              <div class="bounce3"></div>
+         </div>
+      </div>
+    </div>
+  </div>
+  <footer class="card-footer" id="chatBox-textbox">
+    <div style="width: 63%">
+      <textarea id="chatTextarea" class="chat-textarea" placeholder="Digite aqui" v-on:focus="expandTextArea()" v-on:blur="dexpandTetArea()"></textarea>
+    </div>
+    <div class="has-text-centered" style="width: 37%">
+      <a class="button is-white">
+        <i class="fa fa-smile-o fa-5" aria-hidden="true"></i>
+      </a>
+    <a class="button is-white">send</a></div>
+  </footer>
+  </div>
+</div>
+</div>
+<div class="emojiBox" style="display: none">
+  <div class="box">
+  
+  </div>
+</div>
+
+</div>
+
+
+
+</body></html>
