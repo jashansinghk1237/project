@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="C:\Users\parjo\Desktop\FEE\FEE PROJECT\home page\home.css">
+    <script>
+        function goToPage() {
+            var selectElement = document.getElementById("pageSelector");
+            var selectedValue = selectElement.value;
+            if (selectedValue !== "select") {
+                window.location.href = selectedValue;
+            }
+        }
+    </script>
+
+
+
+    <title> HOME </title>
+</head>
+<body>
+    <div class="bgimage">
+        <div class="menu">
+            <div class="leftmenu">
+                <h4>  THIS IS <b>TO-DO LIST </b></h4>
+            </div>
+            <div class="rightmenu">
+                <ul>
+                    <li id="firstlist">Home</li>
+                    <li>
+                       
+                       
+                        <select id="pageSelector" onchange="goToPage()">
+                            <option value="select"> SERVICE </option>
+                            <option value="C:\Users\parjo\Desktop\FEE\FEE PROJECT\SHAREABLE_LIST\SHAREABLE_LIST.html">SHAREABLE-LIST</option>
+                            <option value="C:\Users\parjo\Desktop\FEE\FEE PROJECT\ALARAM-TODOLIST\ALARAM_TODO LIST.html">Alaram-todolist</option>
+                            <option value="C:\Users\parjo\Desktop\FEE\PROJECT_TODOLIST____.html">TODO-LIST</option>
+                            <option value="C:\Users\parjo\Desktop\FEE\FEE PROJECT\TRACKING\STICKY.HTML">STICKY LIST</option>
+                        </select>
+                    
+                    </li>
+
+                    <li> <a href="C:\Users\parjo\Desktop\FEE\FEE PROJECT\ABOUT PAGE\about_page.html"> ABOUT US </a> </li>
+                    
+                    <li><a href="C:\Users\parjo\Desktop\FEE\two_buttons.html"> BLOGS </a> </li>
+                    
+                    <li id="complaints"> <a href="C:\Users\parjo\Desktop\FEE\FEE PROJECT\file input\FILE_INPUT.html">COMPLAINTS </a> </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="text">
+            <h4>DESIGN * DEVELOPMENT * BRANDING</h4>
+            <h1> CREATIVE & EXPERIENCED </h1>
+            <h3> WE ARE THE ONE OF THE WORLD'S TOP CREATIVE DESIGN AGENCIES </h3>
+            <button class="btn"> Like share</button>
+            <button class="btn"> Subscribe</button>
+        </div>
+    </div>
+</body>
+</html>
